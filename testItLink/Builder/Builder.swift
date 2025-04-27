@@ -24,8 +24,15 @@ class Builder {
     }
     
     static func createGalleryView() -> UIViewController {
-        return createView(viewType: GalleryViewController.self) { view in
+        let galleryVC = createView(viewType: GalleryViewController.self) { view in
             GalleryViewPresenter(view: view)
+        }
+        return UINavigationController(rootViewController: galleryVC)
+    }
+    
+    static func createFullscreenView(items: [ImageItem], selectedIndex: Int) -> UIViewController {
+        return createView(viewType: FullscreenViewController.self) { view in
+            FullscreenViewPresenter(items: items, selectedIndex: selectedIndex)
         }
     }
 }

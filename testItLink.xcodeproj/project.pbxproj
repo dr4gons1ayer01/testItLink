@@ -19,6 +19,10 @@
 		BE7A1A522DBE7DC100AE4707 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A1A512DBE7DC100AE4707 /* DownloadManager.swift */; };
 		BE7A1A572DBE843100AE4707 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A1A562DBE843100AE4707 /* String+Ext.swift */; };
 		BE7A1A592DBE962200AE4707 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A1A582DBE962200AE4707 /* NetworkMonitor.swift */; };
+		BE7A1A5B2DBEB4B000AE4707 /* FullscreenViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A1A5A2DBEB4B000AE4707 /* FullscreenViewPresenter.swift */; };
+		BE7A1A5D2DBEB4D100AE4707 /* FullscreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A1A5C2DBEB4D100AE4707 /* FullscreenView.swift */; };
+		BE7A1A5F2DBEB4EC00AE4707 /* FullscreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A1A5E2DBEB4EC00AE4707 /* FullscreenViewController.swift */; };
+		BE7A1A612DBEC53900AE4707 /* ZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A1A602DBEC53900AE4707 /* ZoomableImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		BE7A1A512DBE7DC100AE4707 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		BE7A1A562DBE843100AE4707 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		BE7A1A582DBE962200AE4707 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		BE7A1A5A2DBEB4B000AE4707 /* FullscreenViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenViewPresenter.swift; sourceTree = "<group>"; };
+		BE7A1A5C2DBEB4D100AE4707 /* FullscreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenView.swift; sourceTree = "<group>"; };
+		BE7A1A5E2DBEB4EC00AE4707 /* FullscreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenViewController.swift; sourceTree = "<group>"; };
+		BE7A1A602DBEC53900AE4707 /* ZoomableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +163,7 @@
 		BE7A1A482DBE77AE00AE4707 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				BE7A1A5A2DBEB4B000AE4707 /* FullscreenViewPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -162,6 +171,9 @@
 		BE7A1A492DBE77B600AE4707 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BE7A1A622DBEC55900AE4707 /* Parts */,
+				BE7A1A5C2DBEB4D100AE4707 /* FullscreenView.swift */,
+				BE7A1A5E2DBEB4EC00AE4707 /* FullscreenViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,6 +207,14 @@
 				BE7A1A562DBE843100AE4707 /* String+Ext.swift */,
 			);
 			path = "String+Ext";
+			sourceTree = "<group>";
+		};
+		BE7A1A622DBEC55900AE4707 /* Parts */ = {
+			isa = PBXGroup;
+			children = (
+				BE7A1A602DBEC53900AE4707 /* ZoomableImageView.swift */,
+			);
+			path = Parts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +287,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7A1A5B2DBEB4B000AE4707 /* FullscreenViewPresenter.swift in Sources */,
+				BE7A1A5D2DBEB4D100AE4707 /* FullscreenView.swift in Sources */,
 				BE7A1A572DBE843100AE4707 /* String+Ext.swift in Sources */,
 				BE7A1A4E2DBE780700AE4707 /* GalleryViewPresenter.swift in Sources */,
 				BE7A1A502DBE785900AE4707 /* GalleryViewController.swift in Sources */,
@@ -274,7 +296,9 @@
 				BE7A1A292DBE740300AE4707 /* AppDelegate.swift in Sources */,
 				BE7A1A2B2DBE740300AE4707 /* SceneDelegate.swift in Sources */,
 				BE7A1A412DBE769500AE4707 /* Builder.swift in Sources */,
+				BE7A1A5F2DBEB4EC00AE4707 /* FullscreenViewController.swift in Sources */,
 				BE7A1A592DBE962200AE4707 /* NetworkMonitor.swift in Sources */,
+				BE7A1A612DBEC53900AE4707 /* ZoomableImageView.swift in Sources */,
 				BE7A1A522DBE7DC100AE4707 /* DownloadManager.swift in Sources */,
 				BE7A1A4C2DBE77F400AE4707 /* GalleryView.swift in Sources */,
 			);

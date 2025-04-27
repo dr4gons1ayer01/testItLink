@@ -26,18 +26,25 @@ class GalleryViewController: UIViewController, GalleryViewControllerProtocol {
     
     func updateGallery(with items: [ImageItem]) {
         self.items = items
-        let contentView = GalleryView(items: items)
+        let contentView = GalleryView(items: items) { [weak self] item, index in
+            self?.showFullScreen(items: items, selectedIndex: index)
+        }
         
         if let hostingController {
             hostingController.rootView = contentView
         } else {
-            let hosting = UIHostingController(rootView: contentView)
-            addChild(hosting)
-            view.addSubview(hosting.view)
-            hosting.view.frame = view.bounds
-            hosting.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            hosting.didMove(toParent: self)
-            self.hostingController = hosting
+            let content = UIHostingController(rootView: contentView)
+            addChild(content)
+            view.addSubview(content.view)
+            content.view.frame = view.bounds
+            content.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            content.didMove(toParent: self)
+            self.hostingController = content
         }
+    }
+
+    private func showFullScreen(items: [ImageItem], selectedIndex: Int) {
+        let fullscreenVC = Builder.createFullscreenView(items: items, selectedIndex: selectedIndex)
+        navigationController?.pushViewController(fullscreenVC, animated: true)
     }
 }

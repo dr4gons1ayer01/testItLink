@@ -9,11 +9,12 @@ import SwiftUI
 
 struct GalleryView: View {
     var items: [ImageItem]
+    var onSelect: (ImageItem, Int) -> Void
     
     var body: some View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))], spacing: 8) {
-                ForEach(items) { item in
+                ForEach(Array(items.enumerated()), id: \.element.id) { index, item in
                     AsyncImage(url: item.url) { phase in
                         switch phase {
                         case .empty:
@@ -43,6 +44,10 @@ struct GalleryView: View {
                         @unknown default:
                             EmptyView()
                         }
+                    }
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        onSelect(item, index)
                     }
                 }
             }
