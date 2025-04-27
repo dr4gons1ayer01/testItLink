@@ -8,7 +8,12 @@
 import Foundation
 import Network
 
-final class NetworkMonitor {
+protocol NetworkMonitoringProtocol {
+    var isConnected: Bool { get }
+    var onChange: ((Bool) -> Void)? { get set }
+}
+
+final class NetworkMonitor: NetworkMonitoringProtocol {
     
     static let shared = NetworkMonitor()
     

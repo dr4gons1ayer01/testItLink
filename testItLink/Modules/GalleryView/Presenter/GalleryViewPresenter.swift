@@ -13,10 +13,14 @@ protocol GalleryViewPresenterProtocol: AnyObject {
 
 class GalleryViewPresenter: GalleryViewPresenterProtocol {
     weak var view: (any GalleryViewControllerProtocol)?
-    private let manager: DownloadManager
-    private let networkMonitor: NetworkMonitor
+    private let manager: DownloadManagingProtocol
+    private var networkMonitor: NetworkMonitoringProtocol
     
-    init(view: any GalleryViewControllerProtocol, manager: DownloadManager = .shared, networkMonitor: NetworkMonitor = .shared) {
+    init(
+        view: any GalleryViewControllerProtocol,
+        manager: DownloadManagingProtocol = DownloadManager.shared,
+        networkMonitor: NetworkMonitoringProtocol = NetworkMonitor.shared
+    ) {
         self.view = view
         self.manager = manager
         self.networkMonitor = networkMonitor

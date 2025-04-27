@@ -13,7 +13,11 @@ enum DownloadError: Error {
     case invalidData
 }
 
-final class DownloadManager {
+protocol DownloadManagingProtocol {
+    func loadFile(completion: @escaping (Result<[URL], Error>) -> Void)
+}
+
+final class DownloadManager: DownloadManagingProtocol {
     
     static let shared = DownloadManager()
     
