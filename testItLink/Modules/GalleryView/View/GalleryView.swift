@@ -14,15 +14,35 @@ struct GalleryView: View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))], spacing: 8) {
                 ForEach(items) { item in
-                    AsyncImage(url: item.url) { image in
-                        image
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 100, height: 100)
-                            .clipped()
-                    } placeholder: {
-                        ProgressView()
-                            .frame(width: 100, height: 100)
+                    AsyncImage(url: item.url) { phase in
+                        switch phase {
+                        case .empty:
+                            ProgressView()
+                                .frame(width: 110, height: 110)
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 110, height: 110)
+                                .clipped()
+                                .cornerRadius(8)
+                        case .failure:
+                            VStack {
+                                Image(systemName: "photo.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 40, height: 40)
+                                    .foregroundColor(.gray)
+                                Text("Ошибка")
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
+                            }
+                            .frame(width: 110, height: 110)
+                            .background(Color(UIColor.secondarySystemBackground))
+                            .cornerRadius(8)
+                        @unknown default:
+                            EmptyView()
+                        }
                     }
                 }
             }
