@@ -14,10 +14,13 @@ protocol GalleryViewPresenterProtocol: AnyObject {
 class GalleryViewPresenter: GalleryViewPresenterProtocol {
     weak var view: (any GalleryViewControllerProtocol)?
     private let manager: DownloadManager
+    private let networkMonitor: NetworkMonitor
     
-    init(view: any GalleryViewControllerProtocol, manager: DownloadManager = .shared) {
+    init(view: any GalleryViewControllerProtocol, manager: DownloadManager = .shared, networkMonitor: NetworkMonitor = .shared) {
         self.view = view
         self.manager = manager
+        self.networkMonitor = networkMonitor
+        observeNetwork()
     }
     
     func loadImages() {
@@ -32,6 +35,15 @@ class GalleryViewPresenter: GalleryViewPresenterProtocol {
             case .failure(let error):
                 //todo: alert
                 print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func observeNetwork() {
+        networkMonitor.onChange = { [weak self] isConnected in
+            guard let self = self else { return }
+            if isConnected {
+                self.loadImages()
             }
         }
     }

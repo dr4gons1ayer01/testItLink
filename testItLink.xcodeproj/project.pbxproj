@@ -18,6 +18,7 @@
 		BE7A1A502DBE785900AE4707 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A1A4F2DBE785900AE4707 /* GalleryViewController.swift */; };
 		BE7A1A522DBE7DC100AE4707 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A1A512DBE7DC100AE4707 /* DownloadManager.swift */; };
 		BE7A1A572DBE843100AE4707 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A1A562DBE843100AE4707 /* String+Ext.swift */; };
+		BE7A1A592DBE962200AE4707 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A1A582DBE962200AE4707 /* NetworkMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		BE7A1A4F2DBE785900AE4707 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		BE7A1A512DBE7DC100AE4707 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		BE7A1A562DBE843100AE4707 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		BE7A1A582DBE962200AE4707 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				BE7A1A512DBE7DC100AE4707 /* DownloadManager.swift */,
+				BE7A1A582DBE962200AE4707 /* NetworkMonitor.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				BE7A1A292DBE740300AE4707 /* AppDelegate.swift in Sources */,
 				BE7A1A2B2DBE740300AE4707 /* SceneDelegate.swift in Sources */,
 				BE7A1A412DBE769500AE4707 /* Builder.swift in Sources */,
+				BE7A1A592DBE962200AE4707 /* NetworkMonitor.swift in Sources */,
 				BE7A1A522DBE7DC100AE4707 /* DownloadManager.swift in Sources */,
 				BE7A1A4C2DBE77F400AE4707 /* GalleryView.swift in Sources */,
 			);
