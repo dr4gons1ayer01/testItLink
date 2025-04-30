@@ -33,6 +33,7 @@ final class FullscreenViewController: UIViewController, FullscreenViewController
 
     private func setupContent() {
         guard let presenter = presenter else { return }
+        selectedIndex = presenter.selectedIndex
 
         let contentView = FullscreenView(
             items: presenter.items,
