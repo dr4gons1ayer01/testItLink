@@ -16,17 +16,9 @@ struct GalleryView: View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))], spacing: 8) {
                 ForEach(Array(items.enumerated()), id: \.element.id) { index, item in
-                    WebImage(url: item.url)
-                        .resizable()
-                        .indicator(.progress)
-                        .transition(.fade(duration: 0.5))
-                        .scaledToFill()
-                        .frame(width: 110, height: 110)
-                        .clipped()
-                        .cornerRadius(8)
-                        .onTapGesture {
-                            onSelect(item, index)
-                        }
+                    RetryableImageView(url: item.url, size: 110) {
+                        onSelect(item, index)
+                    }
                 }
             }
             .padding()
