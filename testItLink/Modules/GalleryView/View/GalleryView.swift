@@ -23,5 +23,8 @@ struct GalleryView: View {
             }
             .padding()
         }
+        .onAppear {
+            SDImageCache.shared.clearMemory()
+        }
     }
 }

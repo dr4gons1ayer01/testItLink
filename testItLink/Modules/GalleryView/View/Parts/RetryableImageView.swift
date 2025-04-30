@@ -36,9 +36,11 @@ struct RetryableImageView: View {
                 reloadKey = UUID()
             }
         } else {
-            WebImage(url: url, options: [.retryFailed], context: nil)
+            WebImage(url: url)
                 .onFailure { _ in
-                    failed = true
+                    DispatchQueue.main.async {
+                        failed = true
+                    }
                 }
                 .resizable()
                 .indicator(.activity)
