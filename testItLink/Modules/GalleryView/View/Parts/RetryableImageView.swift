@@ -14,7 +14,7 @@ struct RetryableImageView: View {
     let onSelect: () -> Void
 
     @State private var reloadKey = UUID()
-    @State private var failed = false
+    @State private var failed: Bool = false
 
     var body: some View {
         if failed {
@@ -53,6 +53,14 @@ struct RetryableImageView: View {
                     onSelect()
                 }
                 .id(reloadKey)
+                .onAppear {
+                    NetworkMonitor.shared.onChange = { newStatus in
+                        if newStatus && failed {
+                            failed = false
+                            reloadKey = UUID()
+                        }
+                    }
+                }
         }
     }
 }
