@@ -6,18 +6,13 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct FullscreenView: View {
     let items: [ImageItem]
-    @State private var selectedIndex: Int
-    @State private var scale: CGFloat = 1.0
-    @Environment(\.presentationMode) var presentationMode
-    
-    init(items: [ImageItem], selectedIndex: Int) {
-        self.items = items
-        _selectedIndex = State(initialValue: selectedIndex)
-    }
-    
+    @Binding var selectedIndex: Int
+    @Binding var isNavHidden: Bool
+
     var body: some View {
         TabView(selection: $selectedIndex) {
             ForEach(items.indices, id: \.self) { index in
@@ -25,7 +20,10 @@ struct FullscreenView: View {
                     .tag(index)
             }
         }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         .background(Color(.systemBackground).ignoresSafeArea())
+        .onTapGesture {
+            isNavHidden.toggle()
+        }
     }
 }
