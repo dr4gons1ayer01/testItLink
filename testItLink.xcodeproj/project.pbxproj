@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BE71C8D82DC265A6003EB62A /* RetryableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE71C8D72DC265A6003EB62A /* RetryableImageView.swift */; };
+		BE71C8DB2DC2B03A003EB62A /* Collection+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE71C8DA2DC2B03A003EB62A /* Collection+Ext.swift */; };
 		BE7A1A292DBE740300AE4707 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A1A282DBE740300AE4707 /* AppDelegate.swift */; };
 		BE7A1A2B2DBE740300AE4707 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A1A2A2DBE740300AE4707 /* SceneDelegate.swift */; };
 		BE7A1A322DBE740600AE4707 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE7A1A312DBE740600AE4707 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		BE71C8D72DC265A6003EB62A /* RetryableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryableImageView.swift; sourceTree = "<group>"; };
+		BE71C8DA2DC2B03A003EB62A /* Collection+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Ext.swift"; sourceTree = "<group>"; };
 		BE7A1A252DBE740300AE4707 /* testItLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testItLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7A1A282DBE740300AE4707 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE7A1A2A2DBE740300AE4707 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,14 @@
 				BE71C8D72DC265A6003EB62A /* RetryableImageView.swift */,
 			);
 			path = Parts;
+			sourceTree = "<group>";
+		};
+		BE71C8D92DC2B022003EB62A /* Collection+Ext */ = {
+			isa = PBXGroup;
+			children = (
+				BE71C8DA2DC2B03A003EB62A /* Collection+Ext.swift */,
+			);
+			path = "Collection+Ext";
 			sourceTree = "<group>";
 		};
 		BE7A1A1C2DBE740300AE4707 = {
@@ -209,6 +219,7 @@
 		BE7A1A542DBE83F300AE4707 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				BE71C8D92DC2B022003EB62A /* Collection+Ext */,
 				BE7A1A552DBE840300AE4707 /* String+Ext */,
 			);
 			path = Extensions;
@@ -313,6 +324,7 @@
 				BE7A1A502DBE785900AE4707 /* GalleryViewController.swift in Sources */,
 				BE71C8D82DC265A6003EB62A /* RetryableImageView.swift in Sources */,
 				BE7A1A3E2DBE754900AE4707 /* ImageItem.swift in Sources */,
+				BE71C8DB2DC2B03A003EB62A /* Collection+Ext.swift in Sources */,
 				BE7A1A292DBE740300AE4707 /* AppDelegate.swift in Sources */,
 				BE7A1A2B2DBE740300AE4707 /* SceneDelegate.swift in Sources */,
 				BE7A1A412DBE769500AE4707 /* Builder.swift in Sources */,

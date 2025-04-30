@@ -41,7 +41,6 @@ final class DownloadManager: DownloadManagingProtocol {
             
             let urls = text.split(separator: "\n")
                 .compactMap { URL(string: String($0)) }
-                //.filter { $0.pathExtension.lowercased().matchesImage }
             
             completion(.success(urls))
             
