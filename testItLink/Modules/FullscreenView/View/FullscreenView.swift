@@ -11,11 +11,13 @@ struct FullscreenView: View {
     let items: [ImageItem]
     @State private var selectedIndex: Int
     @State private var scale: CGFloat = 1.0
+    @Binding var isNavHidden: Bool
     @Environment(\.presentationMode) var presentationMode
     
-    init(items: [ImageItem], selectedIndex: Int) {
+    init(items: [ImageItem], selectedIndex: Int, isNavHidden: Binding<Bool>) {
         self.items = items
         _selectedIndex = State(initialValue: selectedIndex)
+        _isNavHidden = isNavHidden
     }
     
     var body: some View {
@@ -25,7 +27,10 @@ struct FullscreenView: View {
                     .tag(index)
             }
         }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         .background(Color(.systemBackground).ignoresSafeArea())
+        .onTapGesture {
+            isNavHidden.toggle()
+        }
     }
 }

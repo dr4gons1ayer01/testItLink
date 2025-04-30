@@ -16,18 +16,28 @@ final class FullscreenViewController: UIViewController, FullscreenViewController
     typealias PresenterType = FullscreenViewPresenterProtocol
     var presenter: PresenterType?
     private var hostingController: UIHostingController<FullscreenView>?
+    private var isNavHidden: Bool = false {
+        didSet {
+            updateNavigationBar()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        navigationController?.isNavigationBarHidden = false
+        updateNavigationBar()
         setupContent()
     }
     
     private func setupContent() {
         guard let presenter = presenter else { return }
         
-        let contentView = FullscreenView(items: presenter.items, selectedIndex: presenter.selectedIndex)
+        let contentView = FullscreenView(items: presenter.items,
+                                         selectedIndex: presenter.selectedIndex,
+                                         isNavHidden: Binding(
+                                            get: { [weak self] in self?.isNavHidden ?? false },
+                                            set: { [weak self] newValue in self?.isNavHidden = newValue }
+                                         ))
         
         let content = UIHostingController(rootView: contentView)
         addChild(content)
@@ -36,5 +46,10 @@ final class FullscreenViewController: UIViewController, FullscreenViewController
         view.addSubview(content.view)
         content.didMove(toParent: self)
         self.hostingController = content
+    }
+    
+    private func updateNavigationBar() {
+        navigationItem.hidesBackButton = isNavHidden
+        navigationController?.navigationBar.alpha = isNavHidden ? 0 : 1
     }
 }
